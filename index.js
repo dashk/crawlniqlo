@@ -28,10 +28,11 @@ const CDP = require('chrome-remote-interface');
   });
 
   Page.loadEventFired(async() => {
-    const script1 = "document.querySelector('[itemprop=offers] [itemprop=price]').textContent"
-    // Evaluate script1
+    const extractPrice = "document.querySelector('[itemprop=offers] [itemprop=price]').textContent"
+
+    // Evaluate extractPrice script
     const result = await Runtime.evaluate({
-      expression: script1
+      expression: extractPrice
     });
     console.log(result.result.value);
 
